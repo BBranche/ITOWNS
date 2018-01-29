@@ -45,6 +45,7 @@ and open the template in the editor.
             promises.push(itowns.Fetcher.json('examples/layers/JSONLayers/Batiments.json').then(addLayerCb));
 
 
+
             menuGlobe.addGUI('RealisticLighting', false,
                 function(newValue) { globeView.setRealisticLightingOn(newValue); });
 
@@ -59,7 +60,8 @@ and open the template in the editor.
             globeView.addEventListener(itowns.GLOBE_VIEW_EVENTS.GLOBE_INITIALIZED, function () {
                 // eslint-disable-next-line no-console
                 console.info('Globe initialized');
-                globeView.controls.setZoom(8, true);
+                globeView.controls.setZoom(9, true);
+
                 /*
                 ****************************
                 ****************************
@@ -71,6 +73,20 @@ and open the template in the editor.
                 */
               });
             window.globeView = globeView;
+
+            globeView.addEventListener("wheel", function() {
+              console.log("12");
+              if (globeView.controls.getZoom() > 10){
+                console.log("12");
+                globeView.getLayers(layer => layer.id === 'Batiments').visible = true;
+                globeView.notifyChange(true);
+              }
+              else{
+                console.log("9");
+                  globeView.getLayers(layer => layer.id === 'Batiments').visible = false;
+                  globeView.notifyChange(true);
+              }
+            });
 </script>
     </body>
 </html>
