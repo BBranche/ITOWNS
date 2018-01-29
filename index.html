@@ -49,7 +49,7 @@ and open the template in the editor.
             function changeVille(){
               for (var i = 0; i < villes.length; i++) {
                 if (villes[i][0] == listeDeroulante.value) {
-                  var position ={longitude:villes[i][1], latitude:villes[i][2], zoom:5, tilt:30, heading:30}
+                  var position ={longitude:villes[i][1], latitude:villes[i][2], zoom:9, tilt:30, heading:30}
                   globeView.controls.setCameraTargetGeoPosition(position, true)
                 }
               }
@@ -113,7 +113,7 @@ and open the template in the editor.
                 // eslint-disable-next-line no-console
                 console.info('Globe initialized')
 
-                globeView.controls.setZoom(8, true);
+                globeView.controls.setZoom(9, true);
                 /*
                 ****************************
                 ****************************
