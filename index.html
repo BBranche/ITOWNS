@@ -30,7 +30,7 @@ and open the template in the editor.
         <script src="itowns.js"></script>
         <script type="text/javascript">
             document.getElementById('viewerDiv').onload = function(){
-                
+
             }
 
             //titre
@@ -73,7 +73,7 @@ and open the template in the editor.
             menuGlobe.view = globeView;
             var canvas = document.getElementsByTagName("canvas");
             console.log(canvas.style);
-            
+
 
 
             function addLayerCb(layer) {
@@ -86,6 +86,7 @@ and open the template in the editor.
             promises.push(itowns.Fetcher.json('examples/layers/JSONLayers/WORLD_DTM.json').then(addLayerCb));
             promises.push(itowns.Fetcher.json('examples/layers/JSONLayers/IGN_MNT_HIGHRES.json').then(addLayerCb));
             promises.push(itowns.Fetcher.json('examples/layers/JSONLayers/Batiments.json').then(addLayerCb));
+
 
 
             menuGlobe.addGUI('RealisticLighting', false,
@@ -103,6 +104,10 @@ and open the template in the editor.
 <<<<<<< HEAD
                 //globe chargé
                 console.info('Globe initialized');
+<<<<<<< HEAD
+                globeView.controls.setZoom(9, true);
+
+=======
                 //on enlève la licorne
                 document.getElementById("licorne").style.display = "none";
 
@@ -114,6 +119,7 @@ and open the template in the editor.
                 console.info('Globe initialized')
 
                 globeView.controls.setZoom(9, true);
+>>>>>>> fb39ffa25c05994086d8ea9630fa4092a6e9667a
                 /*
                 ****************************
                 ****************************
@@ -127,6 +133,20 @@ and open the template in the editor.
 >>>>>>> 685bfb81652097c72c66cb0860687daf46e0710d
 
             window.globeView = globeView;
+
+            globeView.addEventListener("wheel", function() {
+              console.log("12");
+              if (globeView.controls.getZoom() > 10){
+                console.log("12");
+                globeView.getLayers(layer => layer.id === 'Batiments').visible = true;
+                globeView.notifyChange(true);
+              }
+              else{
+                console.log("9");
+                  globeView.getLayers(layer => layer.id === 'Batiments').visible = false;
+                  globeView.notifyChange(true);
+              }
+            });
 </script>
     </body>
 </html>
