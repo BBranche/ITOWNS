@@ -1,0 +1,103 @@
+{
+    "type": "color",
+    "protocol":   "wmts",
+    "id":         "Batiments",
+    "url":        "http://wxs.ign.fr/f1o8nx49816r5mjwisnndyjk/geoportail/wmts",
+    "networkOptions": {
+        "crossOrigin": "anonymous"
+    },
+    "updateStrategy": {
+        "type": "0",
+        "options": {}
+    },
+    "options": {
+        "attribution" : {
+            "name":"IGN",
+            "url":"http://www.ign.fr/"
+        },
+        "name": "BUILDINGS.BUILDINGS",
+        "mimetype": "image/png",
+        "tileMatrixSet": "PM",
+        "tileMatrixSetLimits": {
+
+            "10": {
+                "minTileRow": 341,
+                "maxTileRow": 574,
+                "minTileCol": 331,
+                "maxTileCol": 671
+            },
+            "11": {
+                "minTileRow": 682,
+                "maxTileRow": 1149,
+                "minTileCol": 663,
+                "maxTileCol": 1342
+            },
+            "12": {
+                "minTileRow": 1365,
+                "maxTileRow": 2298,
+                "minTileCol": 1326,
+                "maxTileCol": 2684
+            },
+            "13": {
+                "minTileRow": 2731,
+                "maxTileRow": 4596,
+                "minTileCol": 2653,
+                "maxTileCol": 5368
+            },
+            "14": {
+                "minTileRow": 5462,
+                "maxTileRow": 9193,
+                "minTileCol": 5307,
+                "maxTileCol": 10737
+            },
+            "15": {
+                "minTileRow": 10924,
+                "maxTileRow": 18386,
+                "minTileCol": 10615,
+                "maxTileCol": 21474
+            },
+            "16": {
+                "minTileRow": 21849,
+                "maxTileRow": 36772,
+                "minTileCol": 21231,
+                "maxTileCol": 42948
+            },
+            "17": {
+                "minTileRow": 43698,
+                "maxTileRow": 73544,
+                "minTileCol": 42462,
+                "maxTileCol": 85897
+            },
+            "18": {
+                "minTileRow": 87397,
+                "maxTileRow": 147089,
+                "minTileCol": 84925,
+                "maxTileCol": 171795
+            },
+            "6": {
+                "minTileRow": 13,
+                "maxTileRow": 35,
+                "minTileCol": 20,
+                "maxTileCol": 41
+            },
+            "7": {
+                "minTileRow": 26,
+                "maxTileRow": 71,
+                "minTileCol": 41,
+                "maxTileCol": 83
+            },
+            "8": {
+                "minTileRow": 53,
+                "maxTileRow": 143,
+                "minTileCol": 82,
+                "maxTileCol": 167
+            },
+            "9": {
+                "minTileRow": 107,
+                "maxTileRow": 287,
+                "minTileCol": 165,
+                "maxTileCol": 335
+            }
+        }
+    }
+}
