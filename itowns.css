@@ -4,7 +4,8 @@ html {
 body {
 	margin: 0;
 	overflow:hidden;
-	height:100%
+	height:100%;
+
 }
 
 #viewerDiv {
@@ -12,7 +13,14 @@ body {
     width: 100%;
     height: 100%;
     padding: 0;
+    position: absolute;
 }
+
+#titre{
+	text-align: center;
+
+}
+
 #menuDiv {
 	position: absolute;
 	top: 0px;
@@ -20,8 +28,16 @@ body {
 }
 
 #menuDeroulant {
-   
-
-}​
-
-
+	top: 0px;
+	right: 0px;
+	position: absolute;
+}
+img{
+	position: absolute;
+	left: 50%;
+    top: 50%;
+    width: 200px;
+    height: 200px;
+    margin-left: -100px; /* Cette valeur doit être la moitié négative de la valeur du width */
+    margin-top: -100px;
+}
