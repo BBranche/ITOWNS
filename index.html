@@ -6,15 +6,17 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Nos bat</title>
+        <title>iTowns</title>
         <meta charset="UTF-8">
-
+        <link rel="icon" type="image/png" href="http://www.itowns-project.org/images/itowns_logo_300x134.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="examples/GUI/dat.gui/dat.gui.min.js"></script>
         <link rel="stylesheet" type="text/css" href="itowns.css">
     </head>
     <body>
-        <div id="viewerDiv"></div>
+        <div id="viewerDiv"><h1 id ="titre" style="font-family: Calibri; color: green">Nos bâtiments 3D</h1></div>
+        <img src="http://www.gif-maniac.com/gifs/1/1082.gif" id="licorne"></img>
+
         <div id="menuDeroulant" onchange="changeVille()">
             <select id="villes" size="1">
               <option value = "paris">Paris
@@ -27,8 +29,20 @@ and open the template in the editor.
         <script src="examples/GUI/GuiTools.js"></script>
         <script src="itowns.js"></script>
         <script type="text/javascript">
+            document.getElementById('viewerDiv').onload = function(){
+                
+            }
+
+            //titre
+            var titre = document.getElementById("titre");
+            titre.style.textAlign = "center";
+            titre.style.background = "transparent";
+            titre.style.margin = "0px";
+
+
             /* global itowns,document,GuiTools*/
             var listeDeroulante = document.getElementById('villes');
+            listeDeroulante.style.marginTop = "40px";
             /* Tableau de villes Francaises avec coordonnées en degrés décimaux*/
             const villes = [["paris",2.333333,48.866667],["lille",3.057256000000052,50.62925],["lyon",4.835658999999964,45.764043],["bordeaux",-0.5791799999999512,44.837789],["strasbourg",7.752111300000024,48.5734053]];
             /*fonction centrant la caméra sur une ville selectionnée dans la liste*/
@@ -50,11 +64,15 @@ and open the template in the editor.
 
             // Creation of the globe
             var globeView = new itowns.GlobeView(viewerDiv, positionOnGlobe);
+
             // Creation of the menu
             var menuGlobe = new GuiTools('menuDiv', globeView);
+            var menuDepl = document.getElementById('menuDiv');
+            menuDepl.style.marginTop = "40px";
             menuGlobe.view = globeView;
-
-
+            var canvas = document.getElementsByTagName("canvas");
+            console.log(canvas.style);
+            
 
 
             function addLayerCb(layer) {
@@ -79,8 +97,10 @@ and open the template in the editor.
 
             // Wait that the globe is well initialized, you should put your function in this event
             globeView.addEventListener(itowns.GLOBE_VIEW_EVENTS.GLOBE_INITIALIZED, function () {
-                // eslint-disable-next-line no-console
+                //globe chargé
                 console.info('Globe initialized');
+                //on enlève la licorne
+                document.getElementById("licorne").style.display = "none";
 
 
 
