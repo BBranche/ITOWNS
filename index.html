@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Globe</title>
+        <title>Nos bat</title>
         <meta charset="UTF-8">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,22 +15,47 @@ and open the template in the editor.
     </head>
     <body>
         <div id="viewerDiv"></div>
+        <div id="menuDeroulant" onchange="changeVille()">
+            <select id="villes" size="1">
+              <option value = "paris">Paris
+              <option value = "bordeaux">Bordeaux
+              <option value = "lille">Lille
+              <option value = "lyon">Lyon
+              <option value = "strasbourg">Strasbourg
+            </select>
+        </div>
         <script src="examples/GUI/GuiTools.js"></script>
         <script src="itowns.js"></script>
         <script type="text/javascript">
             /* global itowns,document,GuiTools*/
+            var listeDeroulante = document.getElementById('villes');
+            /* Tableau de villes Francaises avec coordonnées en degrés décimaux*/
+            const villes = [["paris",2.333333,48.866667],["lille",3.057256000000052,50.62925],["lyon",4.835658999999964,45.764043],["bordeaux",-0.5791799999999512,44.837789],["strasbourg",7.752111300000024,48.5734053]];
+            /*fonction centrant la caméra sur une ville selectionnée dans la liste*/
+            function changeVille(){
+              for (var i = 0; i < villes.length; i++) {
+                if (villes[i][0] == listeDeroulante.value) {
+                  var position ={longitude:villes[i][1], latitude:villes[i][2], zoom:5, tilt:30, heading:30}
+                  globeView.controls.setCameraTargetGeoPosition(position, true)
+                }
+              }
 
+            }
             // Initial position
-            var positionOnGlobe = { longitude: 2.2770202, latitude: 48.8589507, altitude: 25000000 };
+
+            var positionOnGlobe = { longitude: 2.333333, latitude: 48.866667, altitude: 250000 };
 
             // iTowns namespace defined here
             // Creation of the HTML DOM where the view will be initialized
             var viewerDiv = document.getElementById('viewerDiv');
+
             // Creation of the globe
             var globeView = new itowns.GlobeView(viewerDiv, positionOnGlobe);
             // Creation of the menu
             var menuGlobe = new GuiTools('menuDiv', globeView);
             menuGlobe.view = globeView;
+
+
 
 
             function addLayerCb(layer) {
@@ -58,7 +83,8 @@ and open the template in the editor.
             // Wait that the globe is well initialized, you should put your function in this event
             globeView.addEventListener(itowns.GLOBE_VIEW_EVENTS.GLOBE_INITIALIZED, function () {
                 // eslint-disable-next-line no-console
-                console.info('Globe initialized');
+                console.info('Globe initialized')
+
                 globeView.controls.setZoom(8, true);
                 /*
                 ****************************
@@ -70,6 +96,7 @@ and open the template in the editor.
                 ****************************
                 */
               });
+
             window.globeView = globeView;
 </script>
     </body>
